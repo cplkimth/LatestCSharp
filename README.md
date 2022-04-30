@@ -3,7 +3,7 @@ Some codes to use latest C# language features on .Net Framework 4.8
 
 # Features
 ## Record type
-```
+```c#
 public record Person(string FirstName, string LastName)
 {
     public string[] PhoneNumbers { get; init; }
@@ -11,14 +11,14 @@ public record Person(string FirstName, string LastName)
 ```
 
 ## Index and Range
-```
+```c#
 Range range = 1 .. ^1;
 Console.WriteLine("abc"[range]);
 ```
 
 # LangVersion
 Don't forget to using latest version of C# by modifying .csproj file.
-```
+```xml
 <LangVersion>latest</LangVersion>
 ```
 
