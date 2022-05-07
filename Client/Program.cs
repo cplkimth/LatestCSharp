@@ -1,12 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Globalization;
+using System.Threading;
 using System.Threading.Tasks;
-using Client;
 
-Range range = 1 .. ^1;
-Console.WriteLine("abc"[range]);
+public class Program
+{
+    private static async IAsyncEnumerable<int> Generate(int max)
+    {
+        for (int i = 0; i < max; i++)
+        {
+            await Task.Run(() => Thread.Sleep(200));
+            yield return i;
+        }
+    }
 
-Person p = new(1);
-Console.WriteLine(p);
+    public static async Task Main(string[] args)
+    {
+        await foreach (var i in Generate(10))
+        {
+            Console.WriteLine($"{i,-5:N0}{Thread.CurrentThread.ManagedThreadId,5:N0}");
+        }
+    }
+}

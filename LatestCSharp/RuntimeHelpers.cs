@@ -1,11 +1,11 @@
 ﻿namespace System.Runtime.CompilerServices
 {
-    internal static class RuntimeHelpers
+    public static class RuntimeHelpers
     {
         /// <summary>
         ///     Slices the specified array using the specified range.
         /// </summary>
-        public static T[] GetSubArray<T>(T[] array, Range range)
+        internal static T[] GetSubArray<T>(T[] array, Range range)
         {
             if (array == null) throw new ArgumentNullException(nameof(array));
 
